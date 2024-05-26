@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page de connexion</title>
+</head>
+<body>
+  <h1>Connexion</h1>
+  <form id="loginForm">
+    <label for="username">Nom d'utilisateur :</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button type="submit">Se connecter</button>
+  </form>
+
+  <script>
+    // Informations d'identification valides prédéfinies
+    const validUsername = "admin";
+    const validPassword = "motdepasse";
+
+    // Gestionnaire d'événement pour le formulaire
+    const loginForm = document.getElementById("loginForm");
+    loginForm.addEventListener("submit", function(event) {
+      event.preventDefault(); // Empêche le rechargement de la page
+
+      // Récupération des valeurs saisies
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Vérification des informations d'identification
+      if (username === validUsername && password === validPassword) {
+        // Redirection vers une autre page en cas de succès
+        window.location.href = "db1.html";
+      } else {
+        // Affichage d'une alerte en cas d'échec
+        alert("Nom d'utilisateur ou mot de passe incorrect.");
+      }
+    });
+  </script>
+</body>
+</html>

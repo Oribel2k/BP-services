@@ -22,9 +22,25 @@
             </nav>
         </div>
     </header> 
-    <div class="container">
+    <div class="form-container">
         <h1>Pour toutes vos préoccupations</h1>
-        
+        <form action="votre_action_ici" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" placeholder="Nom">
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Prénom">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Message..."></textarea>
+            </div>
+            <button type="submit" class="submit-button">Soumettre</button>
+        </form>
     </div>
     <div class="fixed-bottom">
         <div class="whatsapp-icon">
