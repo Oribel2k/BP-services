@@ -13,7 +13,7 @@ $password = $_POST['password'];
 // Vérification des informations d'identification
 if (isset($credentials[$username]) && $credentials[$username] === $password) {
     // Authentification réussie, rediriger vers la page souhaitée
-    header("Location: db1.html");
+    header("Location: dahboard.php");
     exit();
 } else {
     // Identifiants invalides, rediriger vers la page de connexion avec un message d'erreur

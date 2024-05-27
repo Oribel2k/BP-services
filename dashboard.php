@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header("Location: index.html");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -29,7 +21,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             </ul>
         </div>
         <div class="main-content">
-            <div class="content-body">
+            <div class="content-body"> <?php echo htmlspecialchars($_SESSION['utilisateur']); ?>
                 <table>
                     <tr>
                         <th>N°</th>
@@ -39,19 +31,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <tr>
                         <td>1</td>
                         <td>Station - services</td>
-<<<<<<< HEAD
                         <td><div class="status-new"><button>Nouveau</button></div></td>
-=======
                         <td><div class="status-new"> <button>Nouveau</button></div></td>
->>>>>>> 81b1b5f3bcbbbb8fc3e9a52c3728f3901c595837
                     </tr>
                 </table>
             </div>
         </div>
     </div>
 </body>
-<<<<<<< HEAD
 </html>
-=======
 </html>
->>>>>>> 81b1b5f3bcbbbb8fc3e9a52c3728f3901c595837

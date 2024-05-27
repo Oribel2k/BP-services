@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -43,7 +43,7 @@ body {
 .faq-question.active .faq-arrow {
     transform: rotate(180deg);
 }
-=======
+
 /* Réinitialisation des styles */
 * {
     margin: 0;
@@ -120,4 +120,4 @@ button {
 .rejeter {
     background-color: #dc3545;
 }
->>>>>>> 81b1b5f3bcbbbb8fc3e9a52c3728f3901c595837
+

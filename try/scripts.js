@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 function toggleFaq(element) {
   const answer = element.nextElementSibling;
   
@@ -11,7 +11,6 @@ function toggleFaq(element) {
       element.classList.add('active');
   }
 }
-=======
 // Informations d'identification valides (stockées localement)
 const validCredentials = {
     username: 'admin',
@@ -34,4 +33,3 @@ const validCredentials = {
       alert('Nom utilisateur ou mot de passe incorrect.');
     }
   });
->>>>>>> 81b1b5f3bcbbbb8fc3e9a52c3728f3901c595837
