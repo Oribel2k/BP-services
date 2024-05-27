@@ -14,6 +14,7 @@
 //     window.location.href ="db1.html"
 // }
 
+<<<<<<< HEAD
 // function toggleFaq(element) {
 //     const answer = element.nextElementSibling;
     
@@ -26,6 +27,21 @@
 //         element.classList.add('active');
 //     }
 // }
+=======
+function toggleFaq(element) {
+  const answer = element.nextElementSibling;
+  
+  // Toggle the display of the answer
+  if (answer.style.display === 'block') {
+      answer.style.display = 'none';
+      element.classList.remove('active');
+  } else {
+      answer.style.display = 'block';
+      element.classList.add('active');
+  }
+}
+
+>>>>>>> 81b1b5f3bcbbbb8fc3e9a52c3728f3901c595837
 
 const validUsername = "admin";
 const validPassword = "motdepasse";

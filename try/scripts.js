@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function toggleFaq(element) {
   const answer = element.nextElementSibling;
   
@@ -10,3 +11,27 @@ function toggleFaq(element) {
       element.classList.add('active');
   }
 }
+=======
+// Informations d'identification valides (stockées localement)
+const validCredentials = {
+    username: 'admin',
+    password: 'password123'
+  };
+
+  const loginForm = document.getElementById('loginForm');
+
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Empêcher le rechargement de la page
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Vérifier les informations d'identification
+    if (username === validCredentials.username && password === validCredentials.password) {
+      // Rediriger vers une autre page
+      window.location.href = 'db1.html';
+    } else {
+      alert('Nom utilisateur ou mot de passe incorrect.');
+    }
+  });
+>>>>>>> 81b1b5f3bcbbbb8fc3e9a52c3728f3901c595837

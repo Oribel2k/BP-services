@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -42,3 +43,81 @@ body {
 .faq-question.active .faq-arrow {
     transform: rotate(180deg);
 }
+=======
+/* Réinitialisation des styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: #006837;
+    padding: 10px;
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+main {
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #006837;
+}
+
+.info-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    padding: 10px;
+    border: none;
+    border-bottom: var(solid);
+    border-radius: 3px;
+    background-color: #f9f9f9;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.valider {
+    background-color: #006837;
+}
+
+.rejeter {
+    background-color: #dc3545;
+}
+>>>>>>> 81b1b5f3bcbbbb8fc3e9a52c3728f3901c595837
