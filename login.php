@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Informations de connexion correctes, redirection vers la page protégée
         $_SESSION['loggedin'] = true;
-        header("Location: dashboard.html");
+        header("Location: dashboard.php");
     } else {
         // Informations de connexion incorrectes
         echo "<p>Identifiant ou mot de passe incorrect.</p>";
