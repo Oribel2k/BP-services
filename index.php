@@ -30,11 +30,8 @@ if (isset($_POST["identifiant"]) && isset($_POST["password"])){
             <img src="img/BENIN PETRO b.png" alt="Benin Petro Logo" class="logo">
             <h1>Connexion</h1>
         </div>
-<<<<<<< HEAD:index.php
+
         <form class="login-form" id="loginForm" method = "post">
-=======
-        <form class="login-form" id="loginForm" action="script/login.php" method="POST">
->>>>>>> c6bcd2131b7d81c3a5f921db9fb93592e0fae3a5:index.html
             <h2>Etes-vous un agent BENIN PETRO ? Sinon <a href="accueil.html">cliquez ici</a></h2>
             <label for="identifiant">Identifiant</label>
             <input type="text" id="identifiant" name="identifiant" placeholder="Identifiant" required>
