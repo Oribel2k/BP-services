@@ -1,6 +1,9 @@
 <?php
 // Redirection vers la page index.html
-header('Location: http://localhost/Travaux/index.html');
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+header('Location: http://localhost/TRAVAUX/index.php');
 exit();
 if (session_status() == PHP_SESSION_NONE) {
     session_start();

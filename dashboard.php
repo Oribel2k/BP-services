@@ -1,10 +1,14 @@
 <?php
 // Redirection vers la page index.html
-header('Location: http://localhost/Travaux/index.html');
-exit();
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
+if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
+    header('Location: http://localhost/TRAVAUX/index.php');
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>

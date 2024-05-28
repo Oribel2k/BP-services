@@ -1,23 +1,30 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once __DIR__ . "/file.php";
 echo "<pre>";
 var_dump($users);
-echo"</pre>";
-if (isset($_POST["identifiant"]) && isset($_POST["password"])){
+echo "</pre>";
+
+if (isset($_POST["identifiant"]) && isset($_POST["password"])) {
     $identifiant = $_POST["identifiant"];
     $password = $_POST["password"];
-    $find = false;
     foreach ($users as $user) {
         if ($user["identifiant"] === $identifiant && $user["password"] === $password) {
-            $find = true;
+            $_SESSION['find'] = true;
             break;
         }
     }
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
+};
+
+if (isset($_SESSION['find']) && $_SESSION['find'] === true) {
+    header("Location: http://localhost/TRAVAVAUX/dasboard.php");
+    exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
