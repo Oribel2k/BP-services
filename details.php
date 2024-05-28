@@ -1,3 +1,10 @@
+<?php
+// Redirection vers la page index.html
+header('Location: http://localhost/Travaux/index.html');
+exit();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
