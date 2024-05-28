@@ -8,7 +8,6 @@ if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
     header('Location: http://localhost/TRAVAUX/index.php');
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +30,7 @@ if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
                 <li><a href="#demandes-en-attente">Demandes en attentes</a></li>
                 <li><a href="#demandes-validees">Demandes validées</a></li>
                 <li><a href="#demandes-refusees">Demandes refusées</a></li>
+                <li><a href="http://localhost/TRAVAUX/logout.php">Se déconnecter</a></li>
             </ul>
         </div>
         <div class="main-content">
