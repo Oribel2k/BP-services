@@ -13,6 +13,9 @@ if (isset($_POST["identifiant"]) && isset($_POST["password"])){
             break;
         }
     }
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 }
 ?>
 

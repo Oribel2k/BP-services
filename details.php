@@ -2,6 +2,9 @@
 // Redirection vers la page index.html
 header('Location: http://localhost/Travaux/index.html');
 exit();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
 
