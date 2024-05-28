@@ -10,9 +10,15 @@
 //     window.location.href ="";
 // }
 
+<<<<<<< HEAD
 // function redirect3() {
 //     window.location.href ="db1.html"
 // }
+=======
+function redirect3() {
+    window.location.href ="dasboard.html"
+}
+>>>>>>> c6bcd2131b7d81c3a5f921db9fb93592e0fae3a5
 
 // function toggleFaq(element) {
 //     const answer = element.nextElementSibling;
@@ -27,6 +33,7 @@
 //     }
 // }
 
+<<<<<<< HEAD
 const validUsername = "admin";
 const validPassword = "motdepasse";
 
@@ -48,4 +55,19 @@ const password = document.getElementById("password").value;
         alert("Nom d'utilisateur ou mot de passe incorrect.");
       }
     });
+=======
+function toggleFaq(element) {
+  const answer = element.nextElementSibling;
+  
+  // Toggle the display of the answer
+  if (answer.style.display === 'block') {
+      answer.style.display = 'none';
+      element.classList.remove('active');
+  } else {
+      answer.style.display = 'block';
+      element.classList.add('active');
+  }
+}
+
+>>>>>>> c6bcd2131b7d81c3a5f921db9fb93592e0fae3a5
 
