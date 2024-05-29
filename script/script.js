@@ -2,16 +2,16 @@ function redirect1() {
   window.location.href = ""
 }
 
-function redirect() {
-  window.location.href = "details.html"
+function redirect2() {
+  window.location.href = ""
 }
 
 function redirect3() {
-  window.location.href ="dashboard.html"
+  window.location.href = ""
 }
 
-function redirect4() {
-  window.location.href =""
+function redirect() {
+  window.location.href = "details.html"
 }
 
 function toggleFaq(element) {

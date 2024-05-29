@@ -27,15 +27,12 @@ if (session_status() == PHP_SESSION_NONE) {
     <main>
         <h1>Détails de la demande</h1>
         <div class="info-group">
-            
             <p class="info-value">John Doe</p>
         </div>
         <div class="info-group">
-            
             <p class="info-value">Jane</p>
         </div>
         <div class="info-group">
-    
             <p class="info-value">35</p>
         </div>
         <div class="button-group">
@@ -57,5 +54,19 @@ if (session_status() == PHP_SESSION_NONE) {
             </div>
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Récupère les valeurs depuis le localStorage
+            const nom = localStorage.getItem('nom');
+            const prenom = localStorage.getItem('prenom');
+            const age = localStorage.getItem('age');
+
+            // Affiche les valeurs dans le div résultat
+            const resultatDiv = document.getElementById('resultat');
+            resultatDiv.innerHTML = `<p><strong>Nom:</strong> ${nom}</p>
+                                     <p><strong>Prénom:</strong> ${prenom}</p>
+                                     <p><strong>Age:</strong> ${age}</p>`;
+        });
+    </script>
 </body>
 </html>
