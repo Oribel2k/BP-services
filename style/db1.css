@@ -102,7 +102,7 @@ table {
     border-collapse: collapse;
 }
 table th, table td {
-    padding: 15px;
+    padding: 10px;
     border: 1px solid #ccc;
     text-align: left;
 }
@@ -112,6 +112,7 @@ table th {
     position: sticky;
     top: 0;
     z-index: 1;
+    width: -20px;
 }
 .status-new {
     background-color: #00703c;
@@ -122,10 +123,13 @@ table th {
     text-decoration: none;
     margin: auto;
 }
-a{
+button {
     background-color: #00703c;
     color: #fff;
-    border: none;
-    width: 100px;
+    border: solid;
+    border-radius: 10px;
+    width: 200px;
+    padding: auto;
     text-decoration: none;
+    cursor: pointer;
 }
