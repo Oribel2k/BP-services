@@ -24,11 +24,12 @@ if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
         <img src="img/BENIN PETRO b.png" alt="Benin Petro">
         <div class="agent-name"> <u>Tableau de bord</u> </div>
         <div class="agent-name">John Doe</div>
+        
     </div>
     <div class="dashboard">
         <div class="sidebar">
             <ul>
-                <li><a href="dashboard.php" class="active">Demandes en attentes</a></li>
+                <li><a href="dashboard.php" class="active">Nouvelles demandes</a></li>
                 <li><a href="demandes_validees.php">Demandes validées</a></li>
                 <li><a href="demandes_rejetees.php">Demandes refusées</a></li>
                 <li><a href="http://localhost/TRAVAUX/logout.php">Se déconnecter</a></li>
@@ -37,25 +38,25 @@ if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
         <div class="main-content">
             <div class="content-body">
             <?php
-// Connexion à la base de données
-$conn = new mysqli('localhost', 'root', '', 'bp');
+            // Connexion à la base de données
+            $conn = new mysqli('localhost', 'root', '', 'bp');
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
 
-// Récupération des demandes triées par id décroissant
-$sql = "SELECT id, titre, statut FROM demandes ORDER BY id DESC";
-$result = $conn->query($sql);
-?>
+            // Récupération des demandes triées par id décroissant
+            $sql = "SELECT id, titre, statut FROM demandes ORDER BY id DESC";
+            $result = $conn->query($sql);
+            ?>
 
-<table>
-    <tr>
-        <th>N°</th>
-        <th>Titre de la demande</th>
-        <th>Statut</th>
-        <th>Action</th>
-    </tr>
+        <table>
+            <tr>
+                <th>N°</th>
+                <th>Titre de la demande</th>
+                <th>Statut</th>
+                <th>Action</th>
+            </tr>
     <tbody>
             <?php if ($result->num_rows > 0): ?>
                 <?php while($row = $result->fetch_assoc()): ?>
@@ -76,14 +77,12 @@ $result = $conn->query($sql);
                     <td colspan="4">Aucune demande en attente</td>
                 </tr>
             <?php endif; ?>
-        </tbody>
+    </tbody>
 </table>
 
 <?php
 $conn->close();
 ?>
-
-
             </div>
         </div>
     </div>

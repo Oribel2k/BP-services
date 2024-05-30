@@ -34,6 +34,9 @@ if ($conn->connect_error) {
 
 // Récupération de l'ID de la demande
 $id = $_GET['id'];
+
+$sql = "UPDATE demandes SET vue = 1 WHERE id = $id";
+$conn->query($sql);
 // Récupération des détails de la demande
 $sql = "SELECT * FROM demandes WHERE id = $id";
 $result = $conn->query($sql);

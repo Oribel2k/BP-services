@@ -16,7 +16,7 @@
     <div class="dashboard">
         <div class="sidebar">
             <ul>
-                <li><a href="dashboard.php">Demandes en attentes</a></li>
+                <li><a href="dashboard.php">Nouvelles demandes</a></li>
                 <li><a href="demandes_validees.php" class= "active">Demandes validées</a></li>
                 <li><a href="demandes_rejetees.php">Demandes refusées</a></li>
                 <li><a href="http://localhost/TRAVAUX/logout.php">Se déconnecter</a></li>
