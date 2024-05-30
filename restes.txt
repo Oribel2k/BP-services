@@ -1,0 +1,53 @@
+<!-- <table>
+                    <tr>
+                        <th>N°</th>
+                        <th>Titre de la demande</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Station - services</td>
+                        <td><div class="status-new"><button onclick="redirect()">Nouveau</button></div></td>
+                    </tr>
+                </table> -->
+
+
+
+<?php
+// Connexion à la base de données
+$conn = new mysqli('localhost', 'root', '', 'bp');
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Récupération des demandes
+$sql = "SELECT id, titre, statut FROM demandes";
+$result = $conn->query($sql);
+?>
+
+<table>
+    <tr>
+        <th>N°</th>
+        <th>Titre de la demande</th>
+        <th>Statut</th>
+    </tr>
+    <?php
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row["id"] . "</td>";
+            echo "<td>" . $row["titre"] . "</td>";
+            echo "<td>" . $row["statut"] . "</td>";
+            echo "<td><a href='details.php?id=" . $row["id"] . "'>Nouveau</a></td>";
+            echo "</tr>";
+        }
+    } else {
+        echo "<tr><td colspan='4'>Aucune demande</td></tr>";
+    }
+    ?>
+</table>
+
+<?php
+$conn->close();
+?>

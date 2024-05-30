@@ -7,7 +7,22 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 ?>
-<?php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/details.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/BENIN PETRO b.png" alt="Benin Petro">
+        </div>
+    </header>
+    <?php
 // Connexion à la base de données
 $conn = new mysqli('localhost', 'root', '', 'bp');
 
@@ -28,29 +43,19 @@ if ($result->num_rows > 0) {
     echo "<p>Titre: " . $row["titre"] . "</p>";
     echo "<p>Description: " . $row["description"] . "</p>";
     echo "<p>Statut: " . $row["statut"] . "</p>";
+    // Ajout des boutons "Valider" et "Rejeter"
+    echo "<form action='update_status.php' method='post'>
+            <input type='hidden' name='id' value='" . $row["id"] . "'>
+            <button type='submit' name='action' value='valider' class='valider'>Valider</button>
+            <button type='submit' name='action' value='rejeter' class='rejeter'>Rejeter</button>
+          </form>";
 } else {
     echo "Demande non trouvée";
 }
 
 $conn->close();
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/details.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="img/BENIN PETRO b.png" alt="Benin Petro">
-        </div>
-    </header>
-    <main>
+    <!-- <main>
         <h1>Détails de la demande</h1>
         <div class="info-group">
             <p class="info-value">John Doe</p>
@@ -65,7 +70,7 @@ $conn->close();
             <button class="valider">Valider</button>
             <button class="rejeter">Rejeter</button>
         </div>
-    </main>
+    </main> -->
     <div class="fixed-bottom">
         <div class="whatsapp-icon">
             <a href="https://wa.me/yourwhatsappnumber" target="_blank">

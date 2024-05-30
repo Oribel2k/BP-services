@@ -1,15 +1,3 @@
-<?php
-// Redirection vers la page index.html
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
-    header('Location: http://localhost/TRAVAUX/index.php');
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,7 +24,7 @@ if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
         </div>
         <div class="main-content">
             <div class="content-body">
-            <?php
+                <?php
 // Connexion à la base de données
 $conn = new mysqli('localhost', 'root', '', 'bp');
 
@@ -44,8 +32,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Récupération des demandes triées par id décroissant
-$sql = "SELECT id, titre, statut FROM demandes ORDER BY id DESC";
+// Récupération des demandes rejetées
+$sql = "SELECT id, titre, statut FROM demandes WHERE statut = 'rejeté' ORDER BY id DESC";
 $result = $conn->query($sql);
 ?>
 
@@ -63,11 +51,11 @@ $result = $conn->query($sql);
             echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["titre"] . "</td>";
             echo "<td>" . $row["statut"] . "</td>";
-            echo "<td><a href='details.php?id=" . $row["id"] . "'>Voir</a></td>";
+            echo "<td><a href='details.php?id=" . $row["id"] . "'>Voir les détails</a></td>";
             echo "</tr>";
         }
     } else {
-        echo "<tr><td colspan='4'>Aucune demande</td></tr>";
+        echo "<tr><td colspan='4'>Aucune demande rejetée</td></tr>";
     }
     ?>
 </table>
@@ -75,10 +63,3 @@ $result = $conn->query($sql);
 <?php
 $conn->close();
 ?>
-
-
-            </div>
-        </div>
-    </div>
-</body>
-</html>
