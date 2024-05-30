@@ -3,12 +3,38 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-header('Location: http://localhost/TRAVAUX/index.php');
-exit();
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 ?>
+<?php
+// Connexion à la base de données
+$conn = new mysqli('localhost', 'root', '', 'bp');
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Récupération de l'ID de la demande
+$id = $_GET['id'];
+
+// Récupération des détails de la demande
+$sql = "SELECT * FROM demandes WHERE id = $id";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    echo "<h1>Demande #" . $row["id"] . "</h1>";
+    echo "<p>Titre: " . $row["titre"] . "</p>";
+    echo "<p>Description: " . $row["description"] . "</p>";
+    echo "<p>Statut: " . $row["statut"] . "</p>";
+} else {
+    echo "Demande non trouvée";
+}
+
+$conn->close();
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,19 +80,19 @@ if (session_status() == PHP_SESSION_NONE) {
             </div>
         </footer>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Récupère les valeurs depuis le localStorage
-            const nom = localStorage.getItem('nom');
-            const prenom = localStorage.getItem('prenom');
-            const age = localStorage.getItem('age');
+    <!-- <script>
+    //     document.addEventListener('DOMContentLoaded', () => {
+    //         // Récupère les valeurs depuis le localStorage
+    //         const nom = localStorage.getItem('nom');
+    //         const prenom = localStorage.getItem('prenom');
+    //         const age = localStorage.getItem('age');
 
-            // Affiche les valeurs dans le div résultat
-            const resultatDiv = document.getElementById('resultat');
-            resultatDiv.innerHTML = `<p><strong>Nom:</strong> ${nom}</p>
-                                     <p><strong>Prénom:</strong> ${prenom}</p>
-                                     <p><strong>Age:</strong> ${age}</p>`;
-        });
-    </script>
+    //         // Affiche les valeurs dans le div résultat
+    //         const resultatDiv = document.getElementById('resultat');
+    //         resultatDiv.innerHTML = `<p><strong>Nom:</strong> ${nom}</p>
+    //                                  <p><strong>Prénom:</strong> ${prenom}</p>
+    //                                  <p><strong>Age:</strong> ${age}</p>`;
+    //     });
+    // </script> -->
 </body>
 </html>

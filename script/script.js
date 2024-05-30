@@ -1,5 +1,5 @@
 function redirect1() {
-  window.location.href = ""
+  window.location.href = "form.php"
 }
 
 function redirect2() {
@@ -11,7 +11,7 @@ function redirect3() {
 }
 
 function redirect() {
-  window.location.href = "details.html"
+  window.location.href = "details.php"
 }
 
 function toggleFaq(element) {
