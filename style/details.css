@@ -51,6 +51,7 @@ label {
     border-bottom: var(solid);
     border-radius: 3px;
     background-color: #f9f9f9;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .button-group {

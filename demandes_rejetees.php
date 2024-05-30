@@ -18,7 +18,7 @@
             <ul>
                 <li><a href="dashboard.php">Demandes en attentes</a></li>
                 <li><a href="demandes_validees.php">Demandes validées</a></li>
-                <li><a href="demandes_rejetees.php">Demandes refusées</a></li>
+                <li><a href="demandes_rejetees.php" class="active">Demandes refusées</a></li>
                 <li><a href="http://localhost/TRAVAUX/logout.php">Se déconnecter</a></li>
             </ul>
         </div>

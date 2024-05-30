@@ -22,13 +22,13 @@ if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
 <body>
     <div class="header">
         <img src="img/BENIN PETRO b.png" alt="Benin Petro">
-        <div class="agent-name"> Tableau de bord</div>
+        <div class="agent-name"> <u>Tableau de bord</u> </div>
         <div class="agent-name">John Doe</div>
     </div>
     <div class="dashboard">
         <div class="sidebar">
             <ul>
-                <li><a href="dashboard.php">Demandes en attentes</a></li>
+                <li><a href="dashboard.php" class="active">Demandes en attentes</a></li>
                 <li><a href="demandes_validees.php">Demandes validées</a></li>
                 <li><a href="demandes_rejetees.php">Demandes refusées</a></li>
                 <li><a href="http://localhost/TRAVAUX/logout.php">Se déconnecter</a></li>
@@ -56,20 +56,27 @@ $result = $conn->query($sql);
         <th>Statut</th>
         <th>Action</th>
     </tr>
-    <?php
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row["id"] . "</td>";
-            echo "<td>" . $row["titre"] . "</td>";
-            echo "<td>" . $row["statut"] . "</td>";
-            echo "<td><a href='details.php?id=" . $row["id"] . "'>Voir</a></td>";
-            echo "</tr>";
-        }
-    } else {
-        echo "<tr><td colspan='4'>Aucune demande</td></tr>";
-    }
-    ?>
+    <tbody>
+            <?php if ($result->num_rows > 0): ?>
+                <?php while($row = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['titre']; ?></td>
+                        <td><?php echo $row['statut']; ?></td>
+                        <td>
+                            <form action="details.php" method="get">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <button type="submit">Voir les détails</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="4">Aucune demande en attente</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
 </table>
 
 <?php

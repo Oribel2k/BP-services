@@ -11,7 +11,7 @@ $titre = $_POST['titre'];
 $description = $_POST['description'];
 
 // Insertion des données dans la base de données
-$sql = "INSERT INTO demandes (titre, description, statut) VALUES ('$titre', '$description', 'Nouveau')";
+$sql = "INSERT INTO demandes (titre, description, statut) VALUES ('$titre', '$description','en cours')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Demande soumise avec succès";

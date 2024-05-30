@@ -25,6 +25,7 @@ body {
     font-weight: bolder;
     font-size: 30px;
     margin: auto;
+    text-decoration: underline;
 }
 .dashboard {
     display: flex;
@@ -40,7 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 60px; /* Adjust according to header height */
+    top: 50px; /* Adjust according to header height */
     bottom: 0;
     overflow-y: auto;
 }
@@ -60,6 +61,15 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+.sidebar li:hover>a,
+.sidebar .active,
+.sidebar .active:focus {
+    color: white;
+    background-color: #2f2e2e;
+    opacity : 0.5;
+}
+
 .sidebar ul li a:hover {
     background-color: #00582b;
 }
