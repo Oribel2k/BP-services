@@ -4,9 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 require_once __DIR__ . "/file.php";
-// echo "<pre>";
-// var_dump($users);
-// echo "</pre>";
 
 if (isset($_POST["identifiant"]) && isset($_POST["password"])) {
     $identifiant = $_POST["identifiant"];
