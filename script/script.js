@@ -14,6 +14,10 @@ function redirect() {
   window.location.href = "details.php"
 }
 
+function redirect4() {
+  window.location.href = "index.php"
+}
+
 function toggleFaq(element) {
   const answer = element.nextElementSibling;
   
