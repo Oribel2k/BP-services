@@ -49,6 +49,18 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+        button {
+            background-color: #1e5b25;
+            color: white;
+            border: none;
+            font-weight: bolder;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 15px;
+            width: 130px;
+            margin-left: 190px;
+        }
     </style>
 </head>
 <body>
@@ -66,11 +78,15 @@
                 <label for="description">Description :</label>
                 <input type="text" id="description" name="description" required></input><br>
             </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required> </input>
+            </div>
             <!-- <div class="form-group">
                 <label for="file-upload">Télécharger un fichier</label>
                 <input type="file" id="file-upload" name="file-upload">
             </div> -->
-            <input type="submit" value="Soumettre">
+            <button type="submit" value="Soumettre">Soumettre</button>
         </form>
     </div>
 </body>

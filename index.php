@@ -11,6 +11,7 @@ if (isset($_POST["identifiant"]) && isset($_POST["password"])) {
     foreach ($users as $user) {
         if ($user["identifiant"] === $identifiant && $user["mot_de_passe"] === $password) {
             $_SESSION['find'] = true;
+            $_SESSION['user'] = $user['identifiant'];
             break;
         }
     }
@@ -18,10 +19,6 @@ if (isset($_POST["identifiant"]) && isset($_POST["password"])) {
 
 if (isset($_SESSION['find']) && $_SESSION['find'] === true) {
     header("Location: http://localhost/TRAVAUX/dashboard.php");
-    exit();
-} 
-if (isset($_SESSION['find_dg']) && $_SESSION['find_dg'] === true) {
-    header("Location: http://localhost/TRAVAUX/dashboard_dg.php");
     exit();
 } 
 ?>

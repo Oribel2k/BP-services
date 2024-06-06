@@ -1,8 +1,6 @@
+
 <?php
 // Redirection vers la page index.html
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -46,6 +44,7 @@ if ($result->num_rows > 0) {
     echo "<h1 class='info-value'>Demande #" . $row["id"] . "</h1>";
     echo "<p class='info-value'>Titre: " . $row["titre"] . "</p>";
     echo "<p class='info-value'>Description: " . $row["description"] . "</p>";
+    echo "<p class='info-value'>Email: " . $row["email"] . "</p>";
     echo "<p class='info-value'>Statut: " . $row["statut"] . "</p>";
     // Ajout des boutons "Valider" et "Rejeter"
     echo "<form action='update_status.php' method='post'>

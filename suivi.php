@@ -1,3 +1,28 @@
+<?php
+include('file.php');
+
+$erreur = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $code_verification = $_POST['code_verification'];
+
+    $query = "SELECT * FROM demandes WHERE code_verification = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $code_verification);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $demande = $result->fetch_assoc();
+    } else {
+        $erreur = "Code de vérification invalide.";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,11 +48,20 @@
         </div>
     </header>  <br>
     <div class="verification-container">
-        <form class="verification-form" action="suivi.php" method="post">
+        <form class="verification-form">
             <h2>Entrez votre code de vérification</h2>
             <input type="text" id="verification-code" name="verification-code" placeholder="Code de vérification : AB34ZX0W" required>
             <button type="submit" class="submit-button">Soumettre</button>
         </form>
+        <?php if (!empty($message)): ?>
+            <p>
+                <?php echo $message; ?>
+            </p>
+        <?php elseif (!empty($status)): ?>
+            <p>
+                Le statut de votre demande est : <?php echo $status; ?>
+            </p>
+        <?php endif; ?>
     </div>
     <div class="fixed-bottom">
         <div class="whatsapp-icon">

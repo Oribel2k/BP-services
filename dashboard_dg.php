@@ -1,10 +1,18 @@
 <?php
-if (isset($_SESSION['find_dg']) && $_SESSION['find_dg'] !== true) {
-        header("Location: http://localhost/TRAVAUX/dashboard_dg.php");
-        exit();
-    } 
-?>
+// Redirection vers la page index.html
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
+// if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
+//     header('Location: http://localhost/TRAVAUX/index.php');
+//     exit();
+// }
+if ($_SESSION['user']=== "DG") {
+    header('Location: http://localhost/TRAVAUX/dashboard_dg.php');
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -126,44 +134,6 @@ if (isset($_SESSION['find_dg']) && $_SESSION['find_dg'] !== true) {
     <div class="main-content">
         <div class="header">
             <h1>Tableau de bord du DG</h1>
-        </div>
-        <div class="stats-cards">
-            <div class="card">
-                <h3>Garçons</h3>
-                <!-- <p>1020</p> -->
-            </div>
-            <div class="card">
-                <h3>Filles</h3>
-                <!-- <p>2834</p> -->
-            </div>
-            <div class="card">
-                <h3>Total Inscrits</h3>
-                <!-- <p>2543</p> -->
-            </div>
-        </div>
-        <div class="recent-activities">
-            <h2>Récentes demandes</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nom et Prénoms</th>
-                        <th>Type de demande</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>will</td>
-                        <td>01-10-2021</td>
-                        <td><span style="color: green;">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td>will</td>
-                        <td>01-10-2021</td>
-                        <td><span style="color: orange;">Pending</span></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </body>

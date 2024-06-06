@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,7 @@
     </header> 
     <div class="form-container">
         <h1>Pour toutes vos préoccupations</h1>
-        <form action="votre_action_ici" method="post">
+        <form action="plainte.php" method="post">
             <div class="form-row">
                 <div class="form-group">
                     <label for="nom">Nom</label>
@@ -35,11 +36,15 @@
                     <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
                 </div>
             </div>
+            <div class="form-groups">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="exemple123@gmail.com" required></input>
+            </div> <br>
             <div class="form-group">
                 <label for="message">Message</label>
                 <textarea id="message" name="message" placeholder="Message..." required></textarea>
             </div>
-            <button type="submit" class="submit-button">Soumettre</button>
+            <button type="submit" class="submit-button" value="Soumettre">Soumettre</button>
         </form>
     </div>
     <div class="fixed-bottom">
