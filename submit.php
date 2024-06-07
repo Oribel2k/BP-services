@@ -13,10 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupération des données du formulaire
     $titre = $_POST['titre'];
     $description = $_POST['description'];
+    $email = $_POST['email'];
 
     // Insertion de la demande dans la base de données
-    $sql = "INSERT INTO demandes (titre, description, statut)
-            VALUES ('$titre', '$description', 'en cours')";
+    $sql = "INSERT INTO demandes (titre, description, email, statut)
+            VALUES ('$titre', '$description', '$email', 'en cours')";
 
     if ($conn->query($sql) === TRUE) {
         // Redirection vers la page d'accueil avec un message de succès

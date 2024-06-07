@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Benin Petro - Accueil</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #008000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.station {
+  position: relative;
+}
+
+.station img {
+  max-width: 100%;
+  height: auto;
+}
+
+.bouton-continuer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bouton-continuer a {
+  background-color: #008000;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #008000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+</style>
+<body>
+  <header>
+    <img src="img/BENIN PETRO b.png" alt="Logo Benin Petro">
+    <h1>Bienvenue sur Benin Petro e-services</h1>
+  </header>
+
+  <main>
+    <section class="station">
+      <img src="img/accueil.jpeg" alt="Station-service Benin Petro">
+      <div class="bouton-continuer">
+        <a href="autre-page.html">CONTINUER</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Benin Petro</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

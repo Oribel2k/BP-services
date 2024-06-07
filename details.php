@@ -1,3 +1,4 @@
+
 <?php
 // Redirection vers la page index.html
 if (session_status() == PHP_SESSION_NONE) {
@@ -35,18 +36,16 @@ if ($conn->connect_error) {
 // Récupération de l'ID de la demande
 $id = $_GET['id'];
 
-$sql = "UPDATE demandes SET vue = 1 WHERE id = $id";
-$conn->query($sql);
 // Récupération des détails de la demande
 $sql = "SELECT * FROM demandes WHERE id = $id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    echo "<h1 class='info-value'>Demande #" . $row["id"] . "</h1>";
-    echo "<p class='info-value'>Titre: " . $row["titre"] . "</p>";
-    echo "<p class='info-value'>Description: " . $row["description"] . "</p>";
-    echo "<p class='info-value'>Statut: " . $row["statut"] . "</p>";
+    echo "<h1 class= 'info-value'>Numéro " . $row["id"] . "</h1>";
+    echo "<p class= 'info-value'>Titre: " . $row["titre"] . "</p>";
+    echo "<p class= 'info-value'>Description: " . $row["description"] . "</p>";
+    echo "<p class= 'info-value'>Statut: " . $row["statut"] . "</p>";
     // Ajout des boutons "Valider" et "Rejeter"
     echo "<form action='update_status.php' method='post'>
             <input type='hidden' name='id' value='" . $row["id"] . "'>
@@ -61,6 +60,7 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
+
     </main>
     <div class="fixed-bottom">
         <div class="whatsapp-icon">

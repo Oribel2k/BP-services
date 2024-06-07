@@ -12,9 +12,9 @@ $action = $_POST['action'];
 
 // Détermination du nouveau statut
 if ($action == 'valider') {
-    $new_status = 'validé';
+    $new_status = 'validé ';
 } elseif ($action == 'rejeter') {
-    $new_status = 'rejeté';
+    $new_status = 'rejeté ';
 } else {
     die("Action non valide");
 }

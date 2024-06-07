@@ -22,17 +22,17 @@ if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
 <body>
     <div class="header">
         <img src="img/BENIN PETRO b.png" alt="Benin Petro">
-        <div class="agent-name"> <u>Tableau de bord</u> </div>
+        <div class="agent-name"> 🏡 <u>Tableau de bord</u> </div>
         <div class="agent-name">John Doe</div>
         
     </div>
     <div class="dashboard">
         <div class="sidebar">
             <ul>
-                <li><a href="dashboard.php" class="active">Nouvelles demandes</a></li>
-                <li><a href="demandes_validees.php">Demandes validées</a></li>
-                <li><a href="demandes_rejetees.php">Demandes refusées</a></li>
-                <li><a href="http://localhost/TRAVAUX/logout.php">Se déconnecter</a></li>
+                <li><a href="dashboard.php" class="active">📋 Nouvelles demandes</a></li>
+                <li><a href="demandes_validees.php">✅ Demandes validées</a></li>
+                <li><a href="demandes_rejetees.php">❌ Demandes refusées</a></li>
+                <li><a href="logout.php">👈🏿 Se déconnecter</a></li>
             </ul>
         </div>
         <div class="main-content">
