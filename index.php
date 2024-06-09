@@ -11,6 +11,7 @@ if (isset($_POST["identifiant"]) && isset($_POST["password"])) {
     foreach ($users as $user) {
         if ($user["identifiant"] === $identifiant && $user["mot_de_passe"] === $password) {
             $_SESSION['find'] = true;
+            $_SESSION['user'] = $user['identifiant'];
             break;
         }
     }
@@ -19,7 +20,7 @@ if (isset($_POST["identifiant"]) && isset($_POST["password"])) {
 if (isset($_SESSION['find']) && $_SESSION['find'] === true) {
     header("Location: http://localhost/TRAVAUX/dashboard.php");
     exit();
-}
+} 
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +39,7 @@ if (isset($_SESSION['find']) && $_SESSION['find'] === true) {
         </div>
 
         <form class="login-form" id="loginForm" method = "post">
-            <h2>Etes-vous un agent BENIN PETRO ? Sinon <a href="accueil.html">cliquez ici</a></h2>
+            <h2>Etes-vous un agent BENIN PETRO ? Sinon <a href="accueil.php">cliquez ici</a></h2>
             <label for="identifiant">Identifiant</label>
             <input type="text" id="identifiant" name="identifiant" placeholder="Identifiant" required>
             <label for="password">Mot de passe</label>

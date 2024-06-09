@@ -82,6 +82,10 @@
                 <label for="email">Email :</label>
                 <input type="email" id="email" name="email" required> </input>
             </div>
+            <!-- <div class="form-group">
+                <label for="file-upload">Télécharger un fichier</label>
+                <input type="file" id="file-upload" name="file-upload">
+            </div> -->
             <button type="submit" value="Soumettre">Soumettre</button>
         </form>
     </div>

@@ -4,9 +4,6 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 ?>
 
 <!DOCTYPE html>
@@ -42,10 +39,10 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    echo "<h1 class= 'info-value'>Numéro " . $row["id"] . "</h1>";
-    echo "<p class= 'info-value'>Titre: " . $row["titre"] . "</p>";
-    echo "<p class= 'info-value'>Description: " . $row["description"] . "</p>";
-    echo "<p class= 'info-value'>Statut: " . $row["statut"] . "</p>";
+    echo "<h1 class='info-value'>Demande #" . $row["id"] . "</h1>";
+    echo "<p class='info-value'>Titre: " . $row["titre"] . "</p>";
+    echo "<p class='info-value'>Description: " . $row["description"] . "</p>";
+    echo "<p class='info-value'>Statut: " . $row["statut"] . "</p>";
     // Ajout des boutons "Valider" et "Rejeter"
     echo "<form action='update_status.php' method='post'>
             <input type='hidden' name='id' value='" . $row["id"] . "'>
