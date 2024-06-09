@@ -1,4 +1,3 @@
-
 <?php
 // Redirection vers la page index.html
 if (session_status() == PHP_SESSION_NONE) {
@@ -23,41 +22,40 @@ if (session_status() == PHP_SESSION_NONE) {
     <main>
         <h1>Détails de la demande</h1>
         <?php
-// Connexion à la base de données
-$conn = new mysqli('localhost', 'root', '', 'bp');
+        // Connexion à la base de données
+        $conn = new mysqli('localhost', 'root', '', 'bp');
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-// Récupération de l'ID de la demande
-$id = $_GET['id'];
+        // Récupération de l'ID de la demande
+        $id = $_GET['id'];
 
-// Récupération des détails de la demande
-$sql = "SELECT * FROM demandes WHERE id = $id";
-$result = $conn->query($sql);
+        // Récupération des détails de la demande
+        $sql = "SELECT * FROM demandes WHERE id = $id";
+        $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    echo "<h1 class='info-value'>Demande #" . $row["id"] . "</h1>";
-    echo "<p class='info-value'>Titre: " . $row["titre"] . "</p>";
-    echo "<p class='info-value'>Description: " . $row["description"] . "</p>";
-    echo "<p class='info-value'>Statut: " . $row["statut"] . "</p>";
-    // Ajout des boutons "Valider" et "Rejeter"
-    echo "<form action='update_status.php' method='post'>
-            <input type='hidden' name='id' value='" . $row["id"] . "'>
-            <div class='button-group'>
-            <button type='submit' name='action' value='valider' class='valider'>Valider</button>
-            <button type='submit' name='action' value='rejeter' class='rejeter'>Rejeter</button>
-            </div>
-          </form>";
-} else {
-    echo "Demande non trouvée";
-}
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            echo "<h1 class='info-value'>Numéro " . htmlspecialchars($row["id"]) . "</h1>";
+            echo "<p class='info-value'>Titre: " . htmlspecialchars($row["titre"]) . "</p>";
+            echo "<p class='info-value'>Description: " . htmlspecialchars($row["description"]) . "</p>";
+            echo "<p class='info-value'>Email: " . htmlspecialchars($row["email"]) . "</p>";
+            echo "<p class='info-value'>Statut: " . htmlspecialchars($row["statut"]) . "</p>";
 
-$conn->close();
-?>
+            // Ajout des boutons "Valider" et "Rejeter"
+            echo "<form action='update_status.php' method='post' class='button-group'>
+                    <input type='hidden' name='id' value='" . htmlspecialchars($row["id"]) . "'>
+                    <button type='submit' name='action' value='valider' class='valider'>Valider</button>
+                    <button type='submit' name='action' value='rejeter' class='rejeter'>Rejeter</button>
+                </form>";
+        } else {
+            echo "Demande non trouvée";
+        }
 
+        $conn->close();
+        ?>
     </main>
     <div class="fixed-bottom">
         <div class="whatsapp-icon">

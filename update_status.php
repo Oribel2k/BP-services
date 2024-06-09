@@ -1,36 +1,46 @@
 <?php
-// Connexion à la base de données
-$conn = new mysqli('localhost', 'root', '', 'bp');
+include 'file1.php';
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['id']) && isset($_POST['action'])) {
+        $id = intval($_POST['id']);
+        $action = $_POST['action'];
 
-// Récupération des données du formulaire
-$id = $_POST['id'];
-$action = $_POST['action'];
+        // Déterminer le nouveau statut
+        if ($action == 'valider') {
+            $statut = 'validé';
+        } elseif ($action == 'rejeter') {
+            $statut = 'rejetée';
+        } else {
+            echo "Action non reconnue.";
+            exit;
+        }
 
-// Détermination du nouveau statut
-if ($action == 'valider') {
-    $new_status = 'validé ';
-} elseif ($action == 'rejeter') {
-    $new_status = 'rejeté ';
-} else {
-    die("Action non valide");
-}
+        // Mettre à jour le statut de la demande
+        $sql = "UPDATE demandes SET statut = ? WHERE id = ?";
+        $stmt = $conn->prepare($sql);
 
-// Mise à jour du statut de la demande dans la base de données
-$sql = "UPDATE demandes SET statut='$new_status' WHERE id=$id";
+        // if ($stmt === false) {
+        //     echo "Erreur de préparation de la requête: " . $conn->error;
+        //     exit;
+        // }
 
-if ($conn->query($sql) === TRUE) {
-    echo "Statut mis à jour avec succès";
-} else {
-    echo "Erreur: " . $conn->error;
+        $stmt->bind_param('si', $statut, $id);
+
+        if ($stmt->execute()) {
+            // Rediriger vers la page d'accueil ou une page de confirmation
+            header("Location: dashboard.php");
+            exit;
+        } else {
+            echo "Erreur lors de la mise à jour du statut: " . $stmt->error;
+        }
+
+        $stmt->close();
+    } else {
+        echo "ID ou action non spécifié.";
+        exit;
+    }
 }
 
 $conn->close();
-
-// Redirection vers le tableau de bord
-header("Location: dashboard.php");
-exit();
 ?>
