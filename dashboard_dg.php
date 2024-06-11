@@ -33,7 +33,7 @@ if ($result = $conn->query($sql)) {
     echo "Erreur de requête SQL: " . $conn->error;
 }
 
-$sql1 = "SELECT COUNT(*) as rejected_requests_count FROM demandes WHERE statut = 'refusé'";
+$sql1 = "SELECT COUNT(*) as rejected_requests_count FROM demandes WHERE statut = 'rejeté'";
 if ($result = $conn->query($sql1)) {
     if ($row = $result->fetch_assoc()) {
         $rejected_requests_count = $row['rejected_requests_count'];

@@ -66,13 +66,6 @@ button {
     border-radius: 3px;
     color: #fff;
     font-weight: bold;
-    cursor: pointer;
-}
-
-.bit{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 .valider {
