@@ -19,6 +19,7 @@
                 <li><a href="dashboard.php">📋 Nouvelles demandes</a></li>
                 <li><a href="demandes_validees.php"   class="active">✅ Demandes validées</a></li>
                 <li><a href="demandes_rejetees.php">❌ Demandes refusées</a></li>
+                <li><a href="contacts.php">🗣️ Plaintes</a></li>
                 <li><a href="logout.php">👈🏿 Se déconnecter</a></li>
             </ul>
         </div>

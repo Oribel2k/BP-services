@@ -1,26 +1,30 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bp";
+// Connexion à la base de données
+$conn = new mysqli('localhost', 'root', '', 'bp');
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
+// Vérifiez la connexion
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT identifiant, mot_de_passe FROM login";
+// Exécutez la requête SQL pour récupérer les utilisateurs
+$sql = "SELECT identifiant, mot_de_passe, role FROM login";
 $result = $conn->query($sql);
 
-$users = array();
+if ($result === false) {
+    die("Erreur de requête SQL: " . $conn->error);
+}
+
+$users = [];
 
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $users[] = $row;
+    while ($row = $result->fetch_assoc()) {
+        $users[] = [
+            'identifiant' => $row['identifiant'],
+            'mot_de_passe' => $row['mot_de_passe'],
+            'role' => $row['role']
+        ];
     }
-} else {
-    echo "0 results";
 }
 
 $conn->close();

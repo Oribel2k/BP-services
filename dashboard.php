@@ -1,13 +1,26 @@
 <?php
-// Redirection vers la page index.html
+// Démarre une session si ce n'est pas déjà fait
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+// Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
 if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
-    header('Location: http://localhost/TRAVAUX/index.php');
+    header('Location: index.php');
     exit();
 }
+
+// Redirige les DG vers leur propre tableau de bord
+if ($_SESSION['role'] === 'dg') {
+    header('Location: dashboard_dg.php');
+    exit();
+}
+
+// if (basename($_SERVER['PHP_SELF']) !== 'dashboard.php') {
+//     // Si l'utilisateur n'est pas sur le tableau de bord du DG, redirigez-le
+//     header('Location: dashboard_dg.php');
+//     exit();
+// }
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +45,7 @@ if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
                 <li><a href="dashboard.php" class="active">📋 Nouvelles demandes</a></li>
                 <li><a href="demandes_validees.php">✅ Demandes validées</a></li>
                 <li><a href="demandes_rejetees.php">❌ Demandes refusées</a></li>
+                <li><a href="contacts.php">🗣️ Plaintes</a></li>
                 <li><a href="logout.php">👈🏿 Se déconnecter</a></li>
             </ul>
         </div>

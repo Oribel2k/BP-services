@@ -15,8 +15,8 @@
             <nav class="navmenu">
                 <ul>
                     <li><a href="accueil.php" class="active">Nouvelle demande</a></li>
-                    <li><a href="suivi.html">Statut de la demande</a></li>
-                    <li><a href="plaintes.html">Plaintes et Réclamations</a></li>
+                    <li><a href="suivi.php">Statut de la demande</a></li>
+                    <li><a href="plaintes.php">Plaintes et Réclamations</a></li>
                     <li><a href="FAQ.html">FAQs</a></li>
                 </ul>
             </nav>

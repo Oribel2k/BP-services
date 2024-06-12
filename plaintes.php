@@ -1,3 +1,46 @@
+<?php
+// Spécifie le fuseau horaire à "Europe/Paris" (à adapter selon votre pays)
+date_default_timezone_set('Africa/Porto-Novo');
+
+// Informations de connexion à la base de données
+$host = 'localhost';
+$dbname = 'bp';
+$username = 'root';  // À adapter selon votre configuration
+$password = '';      // À adapter selon votre configuration
+
+try {
+    // Connexion à la base de données
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Vérifie si le formulaire a été soumis
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Récupère les données du formulaire
+        $nom = htmlspecialchars($_POST['nom']);
+        $prenom = htmlspecialchars($_POST['prenom']);
+        $email = htmlspecialchars($_POST['email']);
+        $message = htmlspecialchars($_POST['message']);
+
+        // Récupère la date et l'heure actuelles
+        $date_envoi = date('Y-m-d H:i:s');
+
+        // Prépare la requête SQL pour insérer les données
+        $sql = "INSERT INTO contacts (nom, prenom, email, message, date_envoi) VALUES (:nom, :prenom, :email, :message, :date_envoi)";
+        $stmt = $pdo->prepare($sql);
+
+        // Exécute la requête avec les données du formulaire
+        $stmt->execute(['nom' => $nom, 'prenom' => $prenom, 'email' => $email, 'message' => $message, 'date_envoi' => $date_envoi]);
+
+        // Redirige vers la page de formulaire avec un paramètre de succès
+        header("Location: plaintes.php?success=1");
+        exit;
+    }
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +59,7 @@
             <nav class="navmenu">
                 <ul>
                     <li><a href="accueil.php" >Nouvelle demande</a></li>
-                    <li><a href="suivi.html" >Statut de la demande</a></li>
+                    <li><a href="suivi.php" >Statut de la demande</a></li>
                     <li><a href="plaintes.html" class="active">Plaintes et Réclamations</a></li>
                     <li><a href="FAQ.html">FAQs</a></li>
                 </ul>
@@ -25,7 +68,7 @@
     </header> 
     <div class="form-container">
         <h1>Pour toutes vos préoccupations</h1>
-        <form action="plainte.php" method="post">
+        <form action="" method="post">
             <div class="form-row">
                 <div class="form-group">
                     <label for="nom">Nom</label>

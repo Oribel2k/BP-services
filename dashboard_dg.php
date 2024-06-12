@@ -1,19 +1,22 @@
 <?php
-// Redirection vers la page index.html
+// Démarre une session si ce n'est pas déjà fait
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
-//     header('Location: http://localhost/TRAVAUX/index.php');
-//     exit();
-// }
-// if ($_SESSION['user']=== "DG") {
-//     header('Location: http://localhost/TRAVAUX/dashboard_dg.php');
-//     exit();
-// }
-?>
+// Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
+if (!isset($_SESSION['find']) || $_SESSION['find'] !== true) {
+    header('Location: index.php');
+    exit();
+}
 
+// Redirige les agents vers leur propre tableau de bord
+if ($_SESSION['role'] !== 'dg') {
+    header('Location: dashboard.php');
+    exit();
+}
+
+?>
 <?php
 // Inclure la connexion à la base de données
 include 'file1.php';
@@ -140,7 +143,8 @@ $new_requests_count = $validate_requests_count + $rejected_requests_count;
             <a href="dashboard_dg.php"><span>🏠</span>Tableau de bord</a>
             <a href="#"><span>📊</span>Rapports</a>
             <a href="#"><span>⚙️</span>Paramètre</a>
-            <a href="#"><span>🔴</span>Se déconnecter</a>
+            <a href="#"><span>🗣️</span>Plaintes</a>
+            <a href="logout.php"><span>🔴</span>Se déconnecter</a>
         </nav>
     </div>
     <div class="main-content">

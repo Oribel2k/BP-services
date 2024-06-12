@@ -1,26 +1,40 @@
 <?php
+// Démarre une session si ce n'est pas déjà fait
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+// Inclut le fichier de connexion à la base de données
 require_once __DIR__ . "/file.php";
 
-if (isset($_POST["identifiant"]) && isset($_POST["password"])) {
+// Vérifie si le formulaire a été soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $identifiant = $_POST["identifiant"];
     $password = $_POST["password"];
+    $login_success = false;
+
     foreach ($users as $user) {
+        // Vérifie les identifiants et le mot de passe
         if ($user["identifiant"] === $identifiant && $user["mot_de_passe"] === $password) {
             $_SESSION['find'] = true;
             $_SESSION['user'] = $user['identifiant'];
+            $_SESSION['role'] = $user['role'];
+            $login_success = true;
             break;
         }
     }
-};
 
-if (isset($_SESSION['find']) && $_SESSION['find'] === true) {
-    header("Location: http://localhost/TRAVAUX/dashboard.php");
-    exit();
-} 
+    if ($login_success) {
+        if ($_SESSION['role'] === 'dg') {
+            header("Location: dashboard_dg.php");
+        } else {
+            header("Location: dashboard.php");
+        }
+        exit();
+    } else {
+        echo "Identifiant ou mot de passe incorrect.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,13 +52,13 @@ if (isset($_SESSION['find']) && $_SESSION['find'] === true) {
             <h1>Connexion</h1>
         </div>
 
-        <form class="login-form" id="loginForm" method = "post">
+        <form class="login-form" id="loginForm" method="post">
             <h2>Etes-vous un agent BENIN PETRO ? Sinon <a href="accueil.php">cliquez ici</a></h2>
             <label for="identifiant">Identifiant</label>
             <input type="text" id="identifiant" name="identifiant" placeholder="Identifiant" required>
             <label for="password">Mot de passe</label>
             <input type="password" id="password" name="password" placeholder="Mot de passe" required>
-            <button type="submit" class="submit-button" >Se connecter</button>
+            <button type="submit" class="submit-button">Se connecter</button>
         </form>
     </div>
 </body>

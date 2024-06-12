@@ -1,7 +1,13 @@
-<?php 
-if (session_status() === PHP_SESSION_ACTIVE) {
-    unset($_SESSION['login']);
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
-header("Location: http://localhost/TRAVAUX/index.php");
-exit;
+
+// Détruire la session
+session_unset();
+session_destroy();
+
+// Rediriger vers la page de connexion
+header("Location: index.php");
+exit();
 ?>
