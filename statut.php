@@ -68,12 +68,12 @@
         <img src="img\BENIN PETRO b.png" alt="BeninPetro Logo">
     </div>
     <div class="container">
-    <?php
-// Récupérer le statut à partir de la requête GET
-$statut = isset($_GET['statut']) ? $_GET['statut'] : '';
+        <?php
+        // Récupérer le statut à partir de la requête GET
+        $statut = isset($_GET['statut']) ? $_GET['statut'] : '';
 
-// Afficher le statut
-echo "Votre statut actuel est : $statut";
-?>
+        // Afficher le statut
+        echo "Votre statut actuel est : $statut";
+        ?>
     </div>
     

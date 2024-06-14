@@ -32,22 +32,14 @@ function toggleFaq(element) {
 }
 
 // script.js
-function showError() {
+window.onload = function() {
   const modal = document.getElementById("modal");
-  modal.style.display = "block";
-  
-  setTimeout(() => {
-      modal.style.display = "none";
-  }, 3000);
-}
-
-window.onclick = function(event) {
-  const modal = document.getElementById("modal");
-  if (event.target === modal) {
-      modal.style.display = "none";
+  if (modal) {
+      setTimeout(() => {
+          modal.style.display = "none";
+          window.location.href = "index.php";
+      }, 3000);
   }
-}
-
-document.getElementById('close-btn').onclick = function() {
-  document.getElementById('modal').style.display = 'none';
 };
+
+
