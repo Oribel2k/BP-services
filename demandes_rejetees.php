@@ -16,11 +16,11 @@
     <div class="dashboard">
         <div class="sidebar">
             <ul>
-                <li><a href="dashboard.php">📋 Nouvelles demandes</a></li>
-                <li><a href="demandes_validees.php">✅ Demandes validées</a></li>
-                <li><a href="demandes_rejetees.php"  class="active">❌ Demandes refusées</a></li>
-                <li><a href="contacts.php">🗣️ Plaintes</a></li>
-                <li><a href="logout.php">👈🏿 Se déconnecter</a></li>
+                <li><a href="dashboard.php"><img src="img/new-document.png" alt=""> Nouvelles demandes</a></li>
+                <li><a href="demandes_validees.php"><img src="img/approval.png" alt=""> Demandes validées</a></li>
+                <li><a href="demandes_rejetees.php"  class="active"><img src="img/delete.png" alt="">  Demandes refusées</a></li>
+                <li><a href="contacts.php"><img src="img/complaint.png" alt="">  Plaintes</a></li>
+                <li><a href="logout.php"><img src="img/logout.png" alt="">  Se déconnecter</a></li>
             </ul>
         </div>
         <div class="main-content">
